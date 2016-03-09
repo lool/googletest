@@ -69,6 +69,8 @@ include_directories(
   ${gtest_SOURCE_DIR}/include
   ${gtest_SOURCE_DIR})
 
+install(DIRECTORY ${gtest_SOURCE_DIR}/include/gtest DESTINATION include)
+
 # Where Google Test's libraries can be found.
 link_directories(${gtest_BINARY_DIR}/src)
 
@@ -81,6 +83,9 @@ link_directories(${gtest_BINARY_DIR}/src)
 if (MSVC AND MSVC_VERSION EQUAL 1700)
   add_definitions(/D _VARIADIC_MAX=10)
 endif()
+
+install(TARGETS gtest DESTINATION lib)
+install(TARGETS gtest_main DESTINATION lib)
 
 ########################################################################
 #
