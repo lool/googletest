@@ -110,7 +110,7 @@ install(TARGETS gtest gtest_main
 install(DIRECTORY ${gtest_SOURCE_DIR}/include/gtest
   DESTINATION include)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/gtest.pc"
-    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/")
 
 ########################################################################
 #
