@@ -34,6 +34,9 @@ if (COMMAND pre_project_set_up_hermetic_build)
   pre_project_set_up_hermetic_build()
 endif()
 
+# pkg-config support
+configure_file("gtest.pc.in" "gtest.pc" @ONLY)
+
 ########################################################################
 #
 # Project-wide settings
@@ -106,6 +109,8 @@ install(TARGETS gtest gtest_main
   DESTINATION lib)
 install(DIRECTORY ${gtest_SOURCE_DIR}/include/gtest
   DESTINATION include)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/gtest.pc"
+    DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/"
 
 ########################################################################
 #
