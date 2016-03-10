@@ -27,6 +27,9 @@ if (COMMAND pre_project_set_up_hermetic_build)
   pre_project_set_up_hermetic_build()
 endif()
 
+# pkg-config support
+configure_file("gmock.pc.in" "gmock.pc" @ONLY)
+
 ########################################################################
 #
 # Project-wide settings
@@ -107,6 +110,10 @@ install(TARGETS gmock gmock_main
   DESTINATION lib)
 install(DIRECTORY ${gmock_SOURCE_DIR}/include/gmock
   DESTINATION include)
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/gmock.pc"
+   DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/"
+)
 
 ########################################################################
 #
